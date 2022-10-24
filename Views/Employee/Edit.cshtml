@@ -1,0 +1,30 @@
+﻿@model Treinando_Crud.Models.Employee
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+    <form asp-action="Edit" class="form-control">
+        <div class="col-md-3">
+            <div>
+                <label class="form-label" asp-for="Name" ></label>
+                <input class="input-group" asp-for="Name" />
+            </div>
+            <div>
+                <label class="form-label" asp-for="BirthDate"></label>
+                <input class="input-group" asp-for="BirthDate">
+            </div>
+            <div>
+                <label class="form-label" asp-for="Email"></label>
+                <input class="input-group" asp-for="Email">
+            </div>
+            <div>
+                <label class="form-label" asp-for="CPF"></label>
+                <input class="input-group" asp-for="CPF">
+            </div>
+            <div class="btn">
+                <input type="submit" value="Edit" class="btn btn-group btn-dark" />
+            </div>
+        </div>
+    </form>
+</div>
