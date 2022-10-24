@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using Treinando_Crud.DataBase;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Conexão com Banco de Dados
+builder.Services.AddDbContext<Context>(context => context.UseMySql("server = localhost; initial catalog = Treinando_CRUD; uid=developer; pwd=Victorc@lp0609", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.31 - mysql")));
 
 var app = builder.Build();
 
