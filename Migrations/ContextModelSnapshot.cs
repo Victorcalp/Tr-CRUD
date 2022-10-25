@@ -19,6 +19,21 @@ namespace Treinando_Crud.Migrations
                 .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("Treinando_Crud.Models.Department", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Departments");
+                });
+
             modelBuilder.Entity("Treinando_Crud.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
@@ -30,6 +45,9 @@ namespace Treinando_Crud.Migrations
 
                     b.Property<decimal>("CPF")
                         .HasColumnType("decimal(65,30)");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()

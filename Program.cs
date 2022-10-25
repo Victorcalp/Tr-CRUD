@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Context>(context => context.UseMySql("server = localhost; initial catalog = Treinando_CRUD; uid=developer; pwd=Victorc@lp0609", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.31 - mysql")));
 
 builder.Services.AddScoped<EmployeeService>();
-
+builder.Services.AddScoped<DepartmentService>();
 
 var app = builder.Build();
 

@@ -11,7 +11,7 @@ using Treinando_Crud.DataBase;
 namespace Treinando_Crud.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221024174831_Initial")]
+    [Migration("20221025190624_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,21 @@ namespace Treinando_Crud.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("Treinando_Crud.Models.Department", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Departments");
+                });
 
             modelBuilder.Entity("Treinando_Crud.Models.Employee", b =>
                 {
@@ -32,6 +47,9 @@ namespace Treinando_Crud.Migrations
 
                     b.Property<decimal>("CPF")
                         .HasColumnType("decimal(65,30)");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()

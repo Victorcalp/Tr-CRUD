@@ -3,7 +3,9 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>@ViewData["Title"]</h2>
+<p>
+    <a asp-action="Create" class="btn btn-group btn-dark">Create</a>
+</p>
 
 <table class="table table-striped table-hover">
     <thead>
@@ -25,6 +27,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentId)
             </th>
             <th></th>
         </tr>
@@ -52,6 +57,9 @@
                     @Html.DisplayFor(modelObj => obj.CPF)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelObj => obj.DepartmentId)
+                </td>
+                <td>
                     <a asp-action="Edit" asp-route-id="@obj.Id">Editar</a>
                     <a asp-action="Details" asp-route-id="@obj.Id">Detalhes</a>
                     <a asp-action="Delete" asp-route-id="@obj.Id">Delete</a>
@@ -61,6 +69,3 @@
     </tbody>
 </table>
 
-<p>
-    <a asp-action="Create" class="btn btn-group btn-dark">Create</a>
-</p>

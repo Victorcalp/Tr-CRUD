@@ -1,4 +1,4 @@
-﻿@model Treinando_Crud.Models.Employee
+﻿@model Treinando_Crud.Models.ViewsModels.EmployeeFormViewModel
 @{
     ViewData["Title"] = "Create";
 }
@@ -9,20 +9,24 @@
     <div class="col-md-4">
            <form asp-action="Create" class="form-control">
                <div>
-                   <label asp-for="Name" class="form-label"></label>
-                   <input asp-for="Name" class="form-control" />
+                   <label asp-for="Employee.Name" class="form-label"></label>
+                   <input asp-for="Employee.Name" class="form-control" />
                </div>
                <div>
-                   <label asp-for="BirthDate" class="form-label"></label>
-                   <input asp-for="BirthDate" class="form-control" />
+                   <label asp-for="Employee.BirthDate" class="form-label"></label>
+                   <input asp-for="Employee.BirthDate" class="form-control" />
                </div>
                <div>
-                   <label asp-for="Email" class="form-label"></label>
-                   <input asp-for="Email" class="form-control" />
+                   <label asp-for="Employee.Email" class="form-label"></label>
+                   <input asp-for="Employee.Email" class="form-control" />
                </div>
                <div>
-                   <label asp-for="CPF" class="form-label"></label>
-                   <input asp-for="CPF" class="form-control" />
+                   <label asp-for="Employee.CPF" class="form-label"></label>
+                   <input asp-for="Employee.CPF" class="form-control" />
+               </div>
+               <div>
+                   <label asp-for="Employee.DepartmentId" class="form-label"></label>
+                   <select asp-for="Employee.DepartmentId" asp-items="@(new SelectList(Model.Departments,"Id", "Name"))" class="form-control"></select>
                </div>
                <div class="btn-group">
                    <input type="submit" value="Create" class="btn btn-dark" />

@@ -9,5 +9,6 @@ namespace Treinando_Crud.DataBase
     {
         public Context(DbContextOptions<Context> options) : base(options) { }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Department> Departments { get; set; }
     }
 }

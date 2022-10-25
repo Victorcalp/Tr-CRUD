@@ -2,8 +2,10 @@
 {
     public class Employee : Users
     {
-        public Employee(int id, string name, DateTime birthDate, string email, decimal cPF) : base(id, name, birthDate, email, cPF)
+        public int DepartmentId { get; set; }
+        public Employee(int id, string name, DateTime birthDate, string email, decimal cPF, int departmentId) : base(id, name, birthDate, email, cPF)
         {
+            DepartmentId = departmentId;
         }
         public Employee() { }
     }

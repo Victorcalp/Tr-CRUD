@@ -1,0 +1,18 @@
+﻿@model Treinando_Crud.Models.Department
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" class="form-control">
+            <div>
+                <label asp-for="Name" class="form-label">Name</label>
+                <input asp-for="Name" class="input-group form-control" />
+            </div>
+            <div class="btn-group">
+                <input type="submit" asp-action="Create" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Treinando_Crud.Models;
+using Treinando_Crud.Models.ViewsModels;
 using Treinando_Crud.Services;
 
 namespace Treinando_Crud.Controllers
@@ -7,10 +8,12 @@ namespace Treinando_Crud.Controllers
     public class EmployeeController : Controller
     {
         public readonly EmployeeService _employeeService;
+        public readonly DepartmentService _departmentService;
 
-        public EmployeeController(EmployeeService employeeService)
+        public EmployeeController(EmployeeService employeeService, DepartmentService departmentService)
         {
             _employeeService = employeeService;
+            _departmentService = departmentService;
         }
 
         public IActionResult Index()
@@ -20,8 +23,10 @@ namespace Treinando_Crud.Controllers
         }
         public IActionResult Create()
         {
-            return View();
-        }
+            var departments = _departmentService.FiendAll();
+            var viewModel = new EmployeeFormViewModel { Departments = departments };
+            return View(viewModel);
+        }   
 
         [HttpPost]
         public IActionResult Create(Employee employee)
