@@ -11,7 +11,7 @@ using Treinando_Crud.DataBase;
 namespace Treinando_Crud.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221025190624_Initial")]
+    [Migration("20221028182402_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,7 +61,20 @@ namespace Treinando_Crud.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DepartmentId");
+
                     b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("Treinando_Crud.Models.Employee", b =>
+                {
+                    b.HasOne("Treinando_Crud.Models.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
                 });
 #pragma warning restore 612, 618
         }

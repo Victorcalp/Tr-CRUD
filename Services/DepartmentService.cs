@@ -21,5 +21,17 @@ namespace Treinando_Crud.Services
         {
             return _context.Departments.OrderBy(x => x.Id).ToList();
         }
+
+        public Department FiendId(int? id)
+        {
+            var list = _context.Departments.FirstOrDefault(x => x.Id == id);
+            return list;
+        }
+
+        public void Edit(Department department)
+        {
+            _context.Update(department);
+            _context.SaveChanges();
+        }
     }
 }

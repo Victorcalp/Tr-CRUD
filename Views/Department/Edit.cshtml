@@ -1,0 +1,20 @@
+﻿@model Treinando_Crud.Models.Department
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+    <form asp-action="Edit" class="form-control">
+        <div class="col-md-4">
+            <input type="hidden" asp-for="Id" />
+            <div>
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="input-group" />
+            </div>
+            <div>
+                <input type="submit" asp-action="Edit" value="Save" class="btn-dark btn-group" />
+                <input type="submit" asp-action="Index" value="Cancelar" class="btn-dark btn-group" />
+            </div>
+        </div>
+    </form>
+</div>

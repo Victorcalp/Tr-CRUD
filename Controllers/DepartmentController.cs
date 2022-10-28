@@ -33,5 +33,18 @@ namespace Treinando_Crud.Controllers
             _departmentService.Insert(department);
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Edit(int? id)
+        {
+            var obj = _departmentService.FiendId(id);
+            return View(obj);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Department department)
+        {
+            _departmentService.Edit(department);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

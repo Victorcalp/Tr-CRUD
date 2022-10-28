@@ -1,4 +1,4 @@
-﻿@model Treinando_Crud.Models.Employee
+﻿@model Treinando_Crud.Models.ViewsModels.EmployeeFormViewModel
 @{
     ViewData["Title"] = "Edit";
 }
@@ -6,24 +6,30 @@
 <div class="row">
     <form asp-action="Edit" class="form-control">
         <div class="col-md-3">
+            <input type="hidden" asp-for="Employee.Id" />
             <div>
-                <label class="form-label" asp-for="Name" ></label>
-                <input class="input-group" asp-for="Name" />
+                <label class="form-label" asp-for="Employee.Name" ></label>
+                <input class="input-group" asp-for="Employee.Name" />
             </div>
             <div>
-                <label class="form-label" asp-for="BirthDate"></label>
-                <input class="input-group" asp-for="BirthDate">
+                <label class="form-label" asp-for="Employee.BirthDate"></label>
+                <input class="input-group" asp-for="Employee.BirthDate">
             </div>
             <div>
-                <label class="form-label" asp-for="Email"></label>
-                <input class="input-group" asp-for="Email">
+                <label class="form-label" asp-for="Employee.Email"></label>
+                <input class="input-group" asp-for="Employee.Email">
             </div>
             <div>
-                <label class="form-label" asp-for="CPF"></label>
-                <input class="input-group" asp-for="CPF">
+                <label class="form-label" asp-for="Employee.CPF"></label>
+                <input class="input-group" asp-for="Employee.CPF">
             </div>
-            <div class="btn">
-                <input type="submit" value="Edit" class="btn btn-group btn-dark" />
+            <div>
+                <label asp-for="Employee.DepartmentId" class="form-label"></label>
+                <select asp-for="Employee.DepartmentId" asp-items="@(new SelectList(Model.Departments, "Id", "Name"))" class="form-control"></select>
+            </div>
+            <div>
+                <input type="submit" asp-action="Edit" value="Save" class="btn-group btn-dark" />
+                <input type="submit" asp-action="Index" value="Cancelar" class="btn-group btn-dark" />
             </div>
         </div>
     </form>

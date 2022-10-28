@@ -35,10 +35,21 @@ namespace Treinando_Crud.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Edit()
+        public IActionResult Edit(int? id)
         {
-            //var list = _employeeService.FiendAll();
-            return View();
+            if(id == null)
+            {
+                return BadRequest();
+            }
+            var list = _employeeService.FiendId(id.Value);
+            if(list == null)
+            {
+                return BadRequest();
+            }
+
+            List<Department> department = _departmentService.FiendAll();
+            var viewModel = new EmployeeFormViewModel { Departments = department, Employee = list };
+            return View(viewModel);
         }
 
         [HttpPost]
