@@ -37,5 +37,11 @@ namespace Treinando_Crud.Services
             _context.Update(employee);
             _context.SaveChanges();
         }
+
+        public void Delete(Employee employee)
+        {
+            _context.Remove(employee);
+            _context.SaveChanges();
+        }
     }
 }

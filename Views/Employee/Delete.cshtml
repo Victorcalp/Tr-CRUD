@@ -1,0 +1,37 @@
+﻿@model Treinando_Crud.Models.ViewsModels.EmployeeFormViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="row">
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="@Model.Employee.Id" />
+        <h3>Certeza que gostaria de excluir o funcionario?</h3>
+        <div>
+            <dl class="form-control-sm">
+                <dt>
+                    @Html.DisplayNameFor(x => x.Employee.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.Employee.Name)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(x => x.Employee.Email)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.Employee.Email)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(x => x.Employee.CPF)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(x => x.Employee.CPF)
+                </dd>
+            </dl>
+        </div>
+        <div class="btn">
+            <input type="submit" asp-action="Delete" class="btn-group btn-danger" />
+            <input type="submit" asp-action="Index" class="btn-group btn-dark" value="Cancelar" />
+        </div>
+    </form>
+</div>

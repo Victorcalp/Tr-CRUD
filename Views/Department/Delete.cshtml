@@ -1,0 +1,25 @@
+﻿@model Treinando_Crud.Models.Department
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div>
+    <form asp-action="Delete">
+        <div>
+            <h4>Certeza que gostaria de Excluir?</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-md-1">
+                            @Html.DisplayNameFor(x => x.Name)
+                </dt>
+                <dd class="col-md-2">
+                            @Html.DisplayFor(x => x.Name)
+                </dd>
+            </dl>
+            <div class="btn">
+                <input type="submit" asp-action="Delete" value="Delete" class="btn-group btn-danger" />
+                <input type="submit" asp-action="Index" class="btn-group btn-dark" value="Cancelar" />
+            </div>
+        </div>
+    </form>
+</div>

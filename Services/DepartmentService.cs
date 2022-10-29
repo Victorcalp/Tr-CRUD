@@ -27,10 +27,15 @@ namespace Treinando_Crud.Services
             var list = _context.Departments.FirstOrDefault(x => x.Id == id);
             return list;
         }
-
         public void Edit(Department department)
         {
             _context.Update(department);
+            _context.SaveChanges();
+        }
+
+        public void Delete(Department department)
+        {
+            _context.Remove(department);
             _context.SaveChanges();
         }
     }

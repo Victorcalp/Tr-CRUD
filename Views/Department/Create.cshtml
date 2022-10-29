@@ -3,16 +3,22 @@
     ViewData["Title"] = "Create";
 }
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" class="form-control">
-            <div>
-                <label asp-for="Name" class="form-label">Name</label>
-                <input asp-for="Name" class="input-group form-control" placeholder="Departamento" />
+<form asp-action="Create">
+    <fieldset>
+    <legend>@ViewData["Title"]</legend>
+        <div class="form-group row">
+            <label asp-for="Name" class="col-sm-1 col-form-label">Name</label>
+            <div class="col-sm-3">
+                <input asp-for="Name" class="form-control" placeholder="Departamento" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <div class="btn-group">
-                <input type="submit" asp-action="Create" class="btn btn-dark" />
-            </div>
-        </form>
-    </div>
-</div>
+        </div>
+    <button type="submit" asp-action="Create" class="btn btn-primary">Create</button>
+    </fieldset>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

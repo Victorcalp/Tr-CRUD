@@ -1,0 +1,18 @@
+﻿@model Treinando_Crud.Models.Department
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    <form asp-action="Details">
+        <h5>Details for Employee</h5>
+        <dl>
+            <dt>@Html.DisplayNameFor(x => x.Id)</dt>
+            <dd>@Html.DisplayFor(x => x.Id)</dd>
+            <dt>@Html.DisplayNameFor(x => x.Name)</dt>
+            <dd>@Html.DisplayFor(x => x.Name)</dd>
+        </dl>
+            <a href="/Department/Edit/@Model.Id" class="btn btn-info">Edit</a>
+            
+    </form>
+</div>

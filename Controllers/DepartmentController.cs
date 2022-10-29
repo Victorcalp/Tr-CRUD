@@ -46,5 +46,24 @@ namespace Treinando_Crud.Controllers
             _departmentService.Edit(department);
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Delete(int? id)
+        {
+            var obj = _departmentService.FiendId(id);
+            return View(obj);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Department department)
+        {
+            _departmentService.Delete(department);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Details(int? id)
+        {
+            var obj = _departmentService.FiendId(id);
+            return View(obj);
+        }
     }
 }

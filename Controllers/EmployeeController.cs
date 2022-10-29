@@ -15,7 +15,6 @@ namespace Treinando_Crud.Controllers
             _employeeService = employeeService;
             _departmentService = departmentService;
         }
-
         public IActionResult Index()
         {
             var list = _employeeService.FiendAll();
@@ -26,7 +25,7 @@ namespace Treinando_Crud.Controllers
             var departments = _departmentService.FiendAll();
             var viewModel = new EmployeeFormViewModel { Departments = departments };
             return View(viewModel);
-        }   
+        }
 
         [HttpPost]
         public IActionResult Create(Employee employee)
@@ -34,15 +33,14 @@ namespace Treinando_Crud.Controllers
             _employeeService.Insert(employee);
             return RedirectToAction(nameof(Index));
         }
-
         public IActionResult Edit(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return BadRequest();
             }
             var list = _employeeService.FiendId(id.Value);
-            if(list == null)
+            if (list == null)
             {
                 return BadRequest();
             }
@@ -56,6 +54,29 @@ namespace Treinando_Crud.Controllers
         public IActionResult Edit(Employee employee)
         {
             _employeeService.Edit(employee);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if(id == null)
+            {
+                return BadRequest();
+            }
+            var obj = _employeeService.FiendId(id);
+            if(obj == null)
+            {
+                return BadRequest();
+            }
+            List<Department> department = _departmentService.FiendAll();
+            var viewModel = new EmployeeFormViewModel { Departments = department, Employee = obj };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Employee employee)
+        {
+            _employeeService.Delete(employee);
             return RedirectToAction(nameof(Index));
         }
     }
